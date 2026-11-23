@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Gatherwell | Event manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Gatherwell home">
+        <span class="brand-mark">G</span>
+        <span><strong>gatherwell</strong><small>EVENT WORKSPACE</small></span>
+      </a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="tabs" aria-label="Main navigation">
+        <button class="tab active" data-tab="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
+        <button class="tab" data-tab="submissions"><span class="nav-icon">▤</span>Submissions</button>
+        <button class="tab" data-tab="volunteers"><span class="nav-icon">♧</span>Volunteers</button>
+        <button class="tab" data-tab="tasks"><span class="nav-icon">✓</span>Tasks</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-note"><span class="local-dot"></span><span><strong>Your data stays here</strong><small>Saved in this browser</small></span></div>
+        <button id="theme-toggle" class="theme-button" type="button"><span id="theme-icon">☾</span> <span id="theme-label">Dark mode</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">G</span><strong>gatherwell</strong></div>
+        <div class="breadcrumbs">Event workspace <span>/</span> <strong id="current-tab-name">Dashboard</strong></div>
+        <div class="top-actions">
+          <button class="button button-quiet" id="export-backup" type="button">Export backup</button>
+          <button class="button button-quiet" id="import-backup" type="button">Import</button>
+          <input id="backup-file" type="file" accept="application/json,.json" hidden>
+        </div>
+      </header>
+      <div id="view" class="content" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal-backdrop" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-heading">
+        <div><p class="eyebrow">EVENT WORKSPACE</p><h2 id="modal-title"></h2></div>
+        <button class="icon-button" id="modal-close" type="button" aria-label="Close dialog">×</button>
+      </div>
+      <form id="record-form"></form>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
